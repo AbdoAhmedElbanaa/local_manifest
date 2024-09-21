@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<remote name="gh" fetch="https://github.com" />
+	<remote name="gl" fetch="https://gitlab.com" />
+	<remote name="gt" fetch="https://gitea.com" />
+	<remote name="bb" fetch="https://bitbucket.org" />
+
+	<project remote="gh" name="donjohanliebert/device_xiaomi_socrates" path="device/xiaomi/socrates" revision="fourteen" />
+	<project remote="gh" name="TheMuppets/proprietary_vendor_xiaomi_socrates" path="vendor/xiaomi/socrates" revision="lineage-21" />
+	<project remote="gh" name="LineageOS/android_kernel_xiaomi_sm8550" path="kernel/xiaomi/sm8550" revision="lineage-21" />
+	<project remote="gh" name="LineageOS/android_kernel_xiaomi_sm8550-devicetrees" path="kernel/xiaomi/sm8550-devicetrees" revision="lineage-21" />
+	<project remote="gh" name="LineageOS/android_kernel_xiaomi_sm8550-modules" path="kernel/xiaomi/sm8550-modules" revision="lineage-21" />
+	<project remote="gh" name="donjohanliebert/hardware_xiaomi" path="hardware/xiaomi" revision="fourteen-aosp" />
+</manifest>
