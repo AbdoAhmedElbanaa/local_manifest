@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<remote name="gh" fetch="https://github.com" />
-	<remote name="gl" fetch="https://gitlab.com" />
-	<remote name="gt" fetch="https://gitea.com" />
-	<remote name="bb" fetch="https://bitbucket.org" />
+    <remote name="github" fetch="https://github.com" />
 
-	<project remote="gh" name="donjohanliebert/device_xiaomi_socrates" path="device/xiaomi/socrates" revision="fourteen" />
-	<project remote="gh" name="TheMuppets/proprietary_vendor_xiaomi_socrates" path="vendor/xiaomi/socrates" revision="lineage-21" />
-	<project remote="gh" name="LineageOS/android_kernel_xiaomi_sm8550" path="kernel/xiaomi/sm8550" revision="lineage-21" />
-	<project remote="gh" name="LineageOS/android_kernel_xiaomi_sm8550-devicetrees" path="kernel/xiaomi/sm8550-devicetrees" revision="lineage-21" />
-	<project remote="gh" name="LineageOS/android_kernel_xiaomi_sm8550-modules" path="kernel/xiaomi/sm8550-modules" revision="lineage-21" />
-	<project remote="gh" name="donjohanliebert/hardware_xiaomi" path="hardware/xiaomi" revision="fourteen-aosp" />
+    <!-- Device & Vendor Trees (Xiaomi Miatoll / SM6250) -->
+    <project path="device/xiaomi/miatoll" name="AbdoAhmedElbanaa/rising_device_xiaomi_miatoll" remote="github" revision="Rising17Final" />
+    <project path="vendor/xiaomi/miatoll" name="AbdoAhmedElbanaa/rising_vendor_xiaomi_miatoll" remote="github" revision="Rising17Final" />
+    <project path="kernel/xiaomi/sm6250" name="AbdoAhmedElbanaa/rising_kernel_xiaomi_sm6250" remote="github" revision="17" />
+
+    <!-- Leica MIUI Camera & MIUI Gallery / Editor -->
+    <project path="device/xiaomi/miuicamera-miatoll" name="AbdoAhmedElbanaa/android_device_xiaomi_miuicamera-miatoll" remote="github" revision="17" />
+    <project path="vendor/xiaomi/miuicamera-miatoll" name="AbdoAhmedElbanaa/leica-vendor_xiaomi_miuicamera-miatoll" remote="github" revision="17" />
+
+    <!-- ROM Core Overrides with Custom Features -->
+    <!-- Frameworks Base: Multi-Face (>20), >20 Fingerprints, Face Rename, SettingsProvider/DeviceConfigUtils ADB & Dev Status Hiding -->
+    <remove-project name="android_frameworks_base-new" />
+    <project path="frameworks/base" name="AbdoAhmedElbanaa/android_frameworks_base-new" remote="github" revision="seventeen" />
+
+    <!-- Settings: Flash Notifications Customization, Multi-Face Management UI -->
+    <remove-project name="android_packages_apps_Settings" />
+    <project path="packages/apps/Settings" name="AbdoAhmedElbanaa/android_packages_apps_Settings" remote="github" revision="seventeen" />
+
+    <!-- Personalizations: Hide Developer Status in Toolbox/Security -->
+    <remove-project name="android_packages_apps_Personalizations" />
+    <project path="packages/apps/Personalizations" name="AbdoAhmedElbanaa/android_packages_apps_Personalizations" remote="github" revision="seventeen" />
+
+    <!-- Vendor GMS: Pixel Live Translate sysconfig & PCS permissions -->
+    <remove-project name="android_vendor_gms" />
+    <project path="vendor/gms" name="AbdoAhmedElbanaa/android_vendor_gms" remote="github" revision="seventeen" clone-depth="1" />
+
+    <!-- Vendor Lineage: Kernel Clang path, RBE wrapper, AxionFx, Live Translate & Pecan overlays -->
+    <remove-project name="android_vendor_lineage" />
+    <project path="vendor/lineage" name="AbdoAhmedElbanaa/android_vendor_lineage" remote="github" revision="seventeen" />
+
+    <!-- Build Soong: RBE fixes & allowed packages -->
+    <remove-project name="android_build_soong" />
+    <project path="build/soong" name="AbdoAhmedElbanaa/android_build_soong" remote="github" revision="seventeen">
+        <linkfile src="root.bp" dest="Android.bp" />
+        <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+    </project>
+
+    <!-- Hardware Lineage Interfaces: LiveDisplay AIDL SDM & SysFS fallback -->
+    <remove-project name="LineageOS/android_hardware_lineage_interfaces" />
+    <project path="hardware/lineage/interfaces" name="AbdoAhmedElbanaa/android_hardware_lineage_interfaces" remote="github" revision="seventeen" />
+
+    <!-- Lineage SDK: LineageHardwareManager display HAL hardening -->
+    <remove-project name="android_lineage-sdk" />
+    <project path="lineage-sdk" name="AbdoAhmedElbanaa/android_lineage-sdk" remote="github" revision="seventeen" />
+
+    <!-- LineageParts: DisplayColor null safety -->
+    <remove-project name="android_packages_apps_LineageParts" />
+    <project path="packages/apps/LineageParts" name="AbdoAhmedElbanaa/android_packages_apps_LineageParts" remote="github" revision="seventeen" />
+
+    <!-- Sepolicy: LiveDisplay sysfs & qti services -->
+    <remove-project name="android_device_lineage_sepolicy" />
+    <project path="device/lineage/sepolicy" name="AbdoAhmedElbanaa/android_device_lineage_sepolicy" remote="github" revision="seventeen" />
+
+    <!-- Frameworks AV: Audio effects / Dolby EffectsFactory & AudioFlinger stability -->
+    <remove-project name="android_frameworks_av" />
+    <project path="frameworks/av" name="AbdoAhmedElbanaa/android_frameworks_av" remote="github" revision="seventeen" />
+
+    <!-- Official Devices: Miatoll OTA configuration -->
+    <remove-project name="official_devices" />
+    <project path="vendor/official_devices" name="AbdoAhmedElbanaa/official_devices" remote="github" revision="seventeen" />
 </manifest>
